@@ -1,12 +1,10 @@
 package com.abdouljr.GestionDeStock.Modeles;
 
-import lombok.Data;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @Entity
@@ -23,5 +21,13 @@ public class Article extends EntiteAbstraite{
     @ManyToOne
     private Categorie categorie;
 
+
+    @OneToMany(mappedBy = "article")
+    List<MouvementStock> mouvementStocks;
+    @ManyToOne
+    private LigneCommandeFournisseur ligneCommandeFournisseur;
+
+    @ManyToOne
+    private LigneCommandeClient ligneCommandeClient;
 
 }

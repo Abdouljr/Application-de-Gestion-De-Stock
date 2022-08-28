@@ -1,8 +1,10 @@
 package com.abdouljr.GestionDeStock.Modeles;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 import lombok.Data;
-import lombok.Generated;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -12,7 +14,7 @@ import java.io.Serializable;
 import java.time.Instant;
 
 @Data
-@MappedSuperclass
+@MappedSuperclass   // Pour le mapper comme un super classe
 @EntityListeners(AuditingEntityListener.class)  // Ecoute pour qu'à chaque création ou modification,
 // il va assigné de valeur à ces attributs
 public class EntiteAbstraite implements Serializable {
