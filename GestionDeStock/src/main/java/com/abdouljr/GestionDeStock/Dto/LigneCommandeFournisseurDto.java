@@ -22,7 +22,7 @@ public class LigneCommandeFournisseurDto {
     @JsonIgnore
     private CommandeFournisseurDto commandeFournisseur;
 
-    public LigneCommandeFournisseurDto fromEntity(LigneCommandeFournisseur ligneCommandeFournisseur){
+    public static LigneCommandeFournisseurDto fromEntity(LigneCommandeFournisseur ligneCommandeFournisseur){
         if (ligneCommandeFournisseur == null){
             return null;
         }
@@ -34,7 +34,7 @@ public class LigneCommandeFournisseurDto {
                 .build();
     }
 
-    public LigneCommandeFournisseur toEntity(LigneCommandeFournisseurDto ligneCommandeFournisseurDto){
+    public static LigneCommandeFournisseur toEntity(LigneCommandeFournisseurDto ligneCommandeFournisseurDto){
         if (ligneCommandeFournisseurDto == null){
             return null;
         }

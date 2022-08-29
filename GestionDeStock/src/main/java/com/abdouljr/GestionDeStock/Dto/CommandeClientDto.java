@@ -22,7 +22,7 @@ public class CommandeClientDto {
     @JsonIgnore
     private ClientDto client;
 
-    public  CommandeClientDto fromEntity(CommandeClient commandeClient){
+    public static   CommandeClientDto fromEntity(CommandeClient commandeClient){
         if (commandeClient == null){
             return null;
         }
@@ -35,7 +35,7 @@ public class CommandeClientDto {
 
     }
 
-    public CommandeClient toEntity(CommandeClientDto commandeClientDto){
+    public static CommandeClient toEntity(CommandeClientDto commandeClientDto){
         if (commandeClientDto == null){
             return null;
         }

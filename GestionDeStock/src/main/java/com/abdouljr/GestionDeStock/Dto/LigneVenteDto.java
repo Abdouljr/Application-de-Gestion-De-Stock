@@ -18,7 +18,7 @@ public class LigneVenteDto {
     @JsonIgnore
     private VenteDto vente;
 
-    public LigneVenteDto fromEntity(LigneVente ligneVente){
+    public static LigneVenteDto fromEntity(LigneVente ligneVente){
         if (ligneVente == null){
             return null;
         }
@@ -30,7 +30,7 @@ public class LigneVenteDto {
                 .build();
     }
 
-    public LigneVente toEntity(LigneVenteDto ligneVenteDto){
+    public static LigneVente toEntity(LigneVenteDto ligneVenteDto){
         if (ligneVenteDto == null){
             return null;
         }

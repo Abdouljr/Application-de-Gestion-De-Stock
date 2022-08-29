@@ -25,7 +25,7 @@ public class FournisseurDto {
     @JsonIgnore
     List<CommandeFournisseurDto> commandeFournisseurs;
 
-    public FournisseurDto fromEntity(Fournisseur fournisseur){
+    public static FournisseurDto fromEntity(Fournisseur fournisseur){
         if (fournisseur == null){
             return null;
         }
@@ -41,7 +41,7 @@ public class FournisseurDto {
                 .build();
     }
 
-    public Fournisseur toEntity(FournisseurDto fournisseurDto){
+    public static Fournisseur toEntity(FournisseurDto fournisseurDto){
         if (fournisseurDto == null){
             return null;
         }
