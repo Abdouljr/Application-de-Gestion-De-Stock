@@ -43,3 +43,6 @@ public class MouvementStockDto {
         return mouvementStock;
     }
 }
+
+
+
