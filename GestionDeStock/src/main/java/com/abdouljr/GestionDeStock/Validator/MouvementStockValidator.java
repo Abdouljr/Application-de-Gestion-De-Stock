@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MouvementStockValidator {
-    public List<String> validator(MouvementStockDto dto) {
+    public List<String> valider(MouvementStockDto dto) {
         List<String> erreurs = new ArrayList<>();
 
         if(dto == null || dto.getQuantite() == null){

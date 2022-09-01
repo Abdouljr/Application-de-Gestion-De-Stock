@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CategorieValidator {
 
-    public static List<String> validator(CategorieDto categorieDto){
+    public static List<String> valider(CategorieDto categorieDto){
         List<String> erreurs = new ArrayList<>();
 
         // StringUtils.hasLength pour vérifier si le contenu est vide comme getCodeCategorie.IsEmpty ou IsBlank

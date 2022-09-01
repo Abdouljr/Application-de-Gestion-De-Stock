@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ArticleValidator {
 
-    public static List<String> validator(ArticleDto dto){
+    public static List<String> valider(ArticleDto dto){
         List<String> erreurs = new ArrayList<>();
 
         if (dto == null){

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LigneVenteValidator {
-    public List<String> validator(LigneVenteDto dto) {
+    public List<String> valider(LigneVenteDto dto) {
         List<String> erreurs = new ArrayList<>();
 
         if(dto == null){

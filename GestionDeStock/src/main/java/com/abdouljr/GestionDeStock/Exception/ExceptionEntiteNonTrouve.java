@@ -1,27 +1,32 @@
 package com.abdouljr.GestionDeStock.Exception;
 
+// CETTE EXCEPTION C'EST QUAND
+
+import lombok.Getter;
+
 public class ExceptionEntiteNonTrouve extends RuntimeException{
 
+    @Getter
     private CodesErreurs codesErreurs;
 
     // retourne le message
-    ExceptionEntiteNonTrouve(String message){
+    public ExceptionEntiteNonTrouve(String message){
         super(message);
     }
 
     // retourne le message et la cause
-    ExceptionEntiteNonTrouve(String message,Throwable cause){
+    public ExceptionEntiteNonTrouve(String message,Throwable cause){
         super(message,cause);
     }
 
     // retourne le message, la cause et le code d'erreur
-    ExceptionEntiteNonTrouve(String message, Throwable cause, CodesErreurs codesErreur){
+    public ExceptionEntiteNonTrouve(String message, Throwable cause, CodesErreurs codesErreur){
         super(message, cause);
         this.codesErreurs = codesErreur;
     }
 
     // retourne le message et le code d'erreur
-    ExceptionEntiteNonTrouve(String message, CodesErreurs codesErreur){
+    public ExceptionEntiteNonTrouve(String message, CodesErreurs codesErreur){
         super(message);
         this.codesErreurs = codesErreur;
     }

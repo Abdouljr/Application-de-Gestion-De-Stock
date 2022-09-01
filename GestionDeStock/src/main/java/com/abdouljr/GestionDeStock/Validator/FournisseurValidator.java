@@ -8,7 +8,7 @@ import java.util.List;
 
 public class FournisseurValidator {
 
-    public List<String> validator(FournisseurDto dto){
+    public List<String> valider(FournisseurDto dto){
         List<String> erreurs = new ArrayList<>();
 
         if (dto == null){

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class LigneCommandeClientValidator {
 
-    public List<String> validator(LigneCommandeClientDto dto) {
+    public List<String> valider(LigneCommandeClientDto dto) {
         List<String> erreurs = new ArrayList<>();
 
         if(dto == null){

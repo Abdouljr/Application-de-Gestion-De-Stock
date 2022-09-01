@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RoleValidator {
-        public List<String> validator(RolesDto dto) {
+        public List<String> valider(RolesDto dto) {
             List<String> erreurs = new ArrayList<>();
 
             if(dto == null || !StringUtils.hasLength(dto.getRole())){

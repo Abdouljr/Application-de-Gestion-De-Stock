@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ClientValidator {
 
-    public List<String> validator(ClientDto dto){
+    public List<String> valider(ClientDto dto){
         List<String> erreurs = new ArrayList<>();
 
         if (dto == null){

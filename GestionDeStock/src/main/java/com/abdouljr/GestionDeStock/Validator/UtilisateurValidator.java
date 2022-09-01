@@ -8,7 +8,7 @@ import java.util.List;
 
 public class UtilisateurValidator {
 
-    public static List<String> validator(UtilisateurDto utilisateurDto){
+    public static List<String> valider(UtilisateurDto utilisateurDto){
         List<String> erreurs = new ArrayList<>();
 
         if(utilisateurDto == null){
