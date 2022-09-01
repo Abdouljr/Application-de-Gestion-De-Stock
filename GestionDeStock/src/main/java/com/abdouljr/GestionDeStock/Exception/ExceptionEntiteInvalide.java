@@ -5,11 +5,10 @@ import lombok.Getter;
 import java.util.List;
 
 // CETTE EXCEPTION C'EST QUAND
+@Getter
 public class ExceptionEntiteInvalide extends RuntimeException{
 
-    @Getter
     List<String> erreurs;
-    @Getter
     private CodesErreurs codesErreurs;
     // retourne le message
     public ExceptionEntiteInvalide(String message){

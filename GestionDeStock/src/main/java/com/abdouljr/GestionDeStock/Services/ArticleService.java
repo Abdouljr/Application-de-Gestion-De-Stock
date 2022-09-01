@@ -10,5 +10,5 @@ public interface ArticleService {
     ArticleDto findById(Integer id);
     ArticleDto findByIdCodeArticle(String codeArticle);
     List<ArticleDto> findAll();
-    String delete(Integer id);
+    void delete(Integer id);
 }

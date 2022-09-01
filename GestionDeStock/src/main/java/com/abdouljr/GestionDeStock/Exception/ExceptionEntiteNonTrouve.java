@@ -4,9 +4,9 @@ package com.abdouljr.GestionDeStock.Exception;
 
 import lombok.Getter;
 
+@Getter
 public class ExceptionEntiteNonTrouve extends RuntimeException{
 
-    @Getter
     private CodesErreurs codesErreurs;
 
     // retourne le message
