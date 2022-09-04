@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LigneCommandeFournisseurValidator {
-    public List<String> valider(LigneCommandeFournisseurDto dto) {
+    public static List<String> valider(LigneCommandeFournisseurDto dto) {
         List<String> erreurs = new ArrayList<>();
 
         if(dto == null){

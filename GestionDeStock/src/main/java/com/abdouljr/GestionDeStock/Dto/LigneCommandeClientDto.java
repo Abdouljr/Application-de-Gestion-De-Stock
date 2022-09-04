@@ -17,8 +17,7 @@ public class LigneCommandeClientDto {
     private BigDecimal quantite;
     private BigDecimal prixUnitaire;
 
-    @JsonIgnore
-    List<ArticleDto> articles;
+    ArticleDto article;
 
     @JsonIgnore
     private CommandeClientDto commandeClient;

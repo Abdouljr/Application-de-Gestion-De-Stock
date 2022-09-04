@@ -16,11 +16,10 @@ public class CommandeClientDto {
     private  String codeClient;
     private Instant dateCommande;
 
-    @JsonIgnore
+    private ClientDto client;
+
     List<LigneCommandeClientDto> ligneCommandeClients;
 
-    @JsonIgnore
-    private ClientDto client;
 
     public static   CommandeClientDto fromEntity(CommandeClient commandeClient){
         if (commandeClient == null){

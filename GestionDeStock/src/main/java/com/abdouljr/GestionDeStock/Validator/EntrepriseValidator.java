@@ -8,7 +8,7 @@ import java.util.List;
 
 public class EntrepriseValidator {
 
-    public List<String> valider(EntrepriseDto dto) {
+    public static List<String> valider(EntrepriseDto dto) {
         List<String> erreurs = new ArrayList<>();
 
         if (!StringUtils.hasLength(dto.getNom())) {

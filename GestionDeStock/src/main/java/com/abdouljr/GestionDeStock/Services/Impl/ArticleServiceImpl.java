@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,7 +25,7 @@ public class ArticleServiceImpl implements ArticleService {
     public ArticleRepository articleRepository;
 
     @Override
-    public ArticleDto save(ArticleDto articleDto) {
+    public ArticleDto sauvegarder(ArticleDto articleDto) {
         // creer une liste des erreurs à partir de la methode valider
         List<String> erreurs = ArticleValidator.valider(articleDto);
         if (!erreurs.isEmpty()){
@@ -35,46 +34,53 @@ public class ArticleServiceImpl implements ArticleService {
         }
         Article articleSave = articleRepository.save(ArticleDto.toEntity(articleDto));
         return ArticleDto.fromEntity(articleSave);
-        // ON PEUT FAIRE AUSSI COMME ça
-       //  ==> return ArticleDto.fromEntity(ArticleDto.toEntity(articleDto));
+        // ON PEUT FAIRE AUSSI COMME ça (
+       //  ==> return ArticleDto.fromEntity(articleRepository.save(ArticleDto.toEntity(articleDto)));
     }
 
     @Override
-    public ArticleDto findById(Integer id) {
+    public ArticleDto recupererParId(Integer id) {
         if (id == null){
             log.error("Article ID is null");
             return  null;
         }
-        Optional<Article> article = articleRepository.findById(id.longValue());
-        ArticleDto dto = ArticleDto.fromEntity(article.get());
-        return Optional.of(dto).orElseThrow(() -> new ExceptionEntiteNonTrouve("Aucun Article" +
+
+        // +++++++++++++++++++++++++ ON PEUT FAIRE CECI  +++++++++++++++++++++++++++++++++++
+        //Optional<Article> article = articleRepository.findById(id.longValue());
+        //ArticleDto dto = ArticleDto.fromEntity(article.get());     Optional.of(dto).orElseThrow(()
+        // +++++++++++++++++++++++++ MAIS JE PREFERE CA  +++++++++++++++++++++++++++++++++++
+        return articleRepository.findById(id.longValue())
+                .map(ArticleDto ::fromEntity)
+                .orElseThrow(() -> new ExceptionEntiteNonTrouve("Aucun Article" +
                 " avec L'ID= " + id + " n'est trouvé dans la BDD", CodesErreurs.ARTICLE_NOT_FOUND));
     }
 
     @Override
-    public ArticleDto findByIdCodeArticle(String codeArticle) {
+    public ArticleDto recupererParCodeArticle(String codeArticle) {
         if (!StringUtils.hasLength(codeArticle)){
             log.error("Article Code is null");
             return null;
-        }
-        Optional<Article> article = articleRepository.findByCodeArticle(codeArticle);
-        return Optional.of(ArticleDto.fromEntity(article.get())).orElseThrow(() -> new ExceptionEntiteNonTrouve("Aucun " +
+        }//Optional<Article> article = articleRepository.findByCodeArticle(codeArticle);   Optional.of(ArticleDto.fromEntity(article.get()))
+        return articleRepository.findByCodeArticle(codeArticle)
+                .map(ArticleDto :: fromEntity)
+                .orElseThrow(() -> new ExceptionEntiteNonTrouve("Aucun " +
                 " Article avec cet CODE= " + "n'est trouvé dans la BDD", CodesErreurs.ARTICLE_NOT_FOUND));
     }
 
     @Override
-    public List<ArticleDto> findAll() {
+    public List<ArticleDto> recupererTout() {
         return articleRepository.findAll().stream()
-                .map(ArticleDto::fromEntity)
+                .map(ArticleDto ::fromEntity)       // :: c'est qu'on appelle method reference
                 .collect(Collectors.toList());
     }
 
     @Override
-    public void delete(Integer id) {
-        if (id == null){
+    public void supprimer(Integer id) {
+        if (id == null) {
             log.error("Article ID is null");
             return;
         }
+
         articleRepository.deleteById(id.longValue());
     }
 }

@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface ArticleService {
 
-    ArticleDto save(ArticleDto articleDto);
-    ArticleDto findById(Integer id);
-    ArticleDto findByIdCodeArticle(String codeArticle);
-    List<ArticleDto> findAll();
-    void delete(Integer id);
+    ArticleDto sauvegarder(ArticleDto articleDto);
+    ArticleDto recupererParId(Integer id);
+    ArticleDto recupererParCodeArticle(String codeArticle);
+    List<ArticleDto> recupererTout();
+    void supprimer(Integer id);
 }

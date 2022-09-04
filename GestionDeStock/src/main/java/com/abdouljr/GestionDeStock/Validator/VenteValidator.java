@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VenteValidator {
-    public List<String> valider(VenteDto dto) {
+    public static List<String> valider(VenteDto dto) {
         List<String> erreurs = new ArrayList<>();
 
         if(dto == null || !StringUtils.hasLength(dto.getCodeVente())){
